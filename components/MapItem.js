@@ -1,43 +1,47 @@
 import React from 'react';
 import { ExpoConfigView } from '@expo/samples';
-// import MapView from 'react-native-maps';
-import MapboxGL from "@react-native-mapbox-gl/maps";
+import MapView from 'react-native-maps';
+// import MapboxGL from "@react-native-mapbox-gl/maps";
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
 
 
-MapboxGL.setAccessToken("pk.eyJ1IjoiYmVuamFtaW4taGVucnkiLCJhIjoiY2syNXRyNm5qMTcweDNubXEwc2pqaTMxZCJ9.VBbNIaHZShqcmG_PbisyIg");
+// MapboxGL.setAccessToken("pk.eyJ1IjoiYmVuamFtaW4taGVucnkiLCJhIjoiY2syNXRyNm5qMTcweDNubXEwc2pqaTMxZCJ9.VBbNIaHZShqcmG_PbisyIg");
 
-class MapItem extends RectButton.component {
-    componentDidMount() {
-        MapboxGL.setTelemetryEnabled(false);
+
+class MapItem extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  render() {
+      return (
+        <View style={styles.container}>
+        <MapView
+          initialRegion={{
+            latitude: 47,
+            longitude: 3,
+            latitudeDelta: 1,
+            longitudeDelta: 1,
+          }}
+        />
+      </View>
+      );
     }
-
-    render() {
-        return (
-          <View style={styles.page}>
-            <View style={styles.container}>
-              <MapboxGL.MapView style={styles.map} />
-            </View>
-          </View>
-        );
-      }
 }
 
-const styles = StyleSheet.create({
-    page: {
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "center",
-      backgroundColor: "#F5FCFF"
-    },
-    container: {
-      height: 300,
-      width: 300,
-      backgroundColor: "tomato"
-    },
-    map: {
-      flex: 1
-    }
-  });
 
-  export default MapItem
+
+const styles = StyleSheet.create({
+  container: {
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  map: {
+    ...StyleSheet.absoluteFillObject,
+  },
+});
+
+export default MapItem
