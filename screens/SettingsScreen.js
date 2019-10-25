@@ -1,10 +1,10 @@
 import React from 'react';
 import { ExpoConfigView } from '@expo/samples';
 // import MapView from 'react-native-maps';
-import MapboxGL from "@react-native-mapbox-gl/maps";
+// import MapboxGL from "@react-native-mapbox-gl/maps";
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
-import { MapItem } from '../components/MapItem';
-
+// import { MapItem } from '../components/MapItem';
+//
 export default function SettingsScreen() {
   return (
     <View style={styles.container}>
